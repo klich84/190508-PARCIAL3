@@ -1,0 +1,103 @@
+#include <iostream>
+
+using namespace std;
+
+int diasrep;
+int arrefinal[8];
+int Est_Inicial[8] = {0,0,0,0,0,1,0,0};
+
+
+
+void NumeroDiasrepeticiones();
+
+int Ilum(int n, int Est_Inicial[]);
+
+void MostrarResul();
+
+
+
+int main()
+{
+    
+    
+    NumeroDiasrepeticiones();
+    Ilum(diasrep, Est_Inicial);
+    MostrarResul();
+
+}
+
+void NumeroDiasrepeticiones()
+{
+	//numero de dias repeti
+	cout<<"Digite el numero de dias que se repetira:"<<endl;
+	cin>>diasrep;
+}
+
+
+
+int Ilum(int n, int Est_Inicial[8])
+{
+    
+for(int i=0;i<n;i++)
+{
+    
+    for(int i=0;i<8;i++)
+    {
+        if(Est_Inicial[i]==0)
+        {
+            if(Est_Inicial[i]+1 == 0)
+            {
+                arrefinal[i] = 0;
+            }
+            else
+            {
+                arrefinal[i] = 1;
+            }
+        }
+        
+        else if (Est_Inicial[i]==7)
+        {
+            if(Est_Inicial[i]-1 == 0)
+            {
+                arrefinal[i] = 0;
+            }
+            else
+            {
+                arrefinal[i] = 1;
+            }
+        }
+        
+        else
+        {
+            if (Est_Inicial[i]+1==0 && Est_Inicial[i]-1==0)
+            {
+                arrefinal[i]=0;
+            }
+            else
+            {
+                arrefinal[i]=1;
+            }
+            if (Est_Inicial[i]+1==1 && Est_Inicial[i]-1==1)
+            {
+                arrefinal[i]=0;
+            }
+            else
+            {
+                arrefinal[i]=1;
+            }
+        }
+        
+    }
+
+  }
+}
+
+void MostrarResul()
+{
+	cout<<endl;
+	cout<<"Resultado es =";
+	for(int i=0;i<8;i++)
+	{
+		cout<<arrefinal[i]<<" ";
+	}
+}
